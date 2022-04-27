@@ -21,6 +21,7 @@ function App() {
       setUserError(undefined);
     } catch (error) {
       // handleError
+      console.log("catch");
       setIsLoading(false);
       setUserData({});
       setUserError(error.message);
