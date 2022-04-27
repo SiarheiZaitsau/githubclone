@@ -1,0 +1,65 @@
+.userInfo {
+  min-width: 292px;
+  margin-right: 85px;
+  transform: translateY(10px);
+}
+.userAvatar {
+  width: 280px;
+  height: 280px;
+  border-radius: 100%;
+  margin-bottom: 24px;
+}
+.userName {
+  text-transform: capitalize;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 34px;
+  margin-bottom: 12px;
+}
+.userLink {
+  display: block;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #0064eb;
+  text-decoration: none;
+  margin-bottom: 31px;
+  &:hover {
+    text-decoration: underline;
+    transition: all 0.3s ease;
+  }
+}
+.userActivity {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.followersIcon {
+  margin-right: 9px;
+}
+
+.userFollowing {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.userFollowers {
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 1024px) {
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: none;
+    margin-bottom: 32px;
+    margin-right: 0;
+  }
+  .userFollowing {
+    margin-left: 24px;
+  }
+}

@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useState } from "react";
+import Header from "./components/Header/Header";
+import Home from "./components/Home/Home";
+import styles from "./App.module.scss";
+import axios from "axios";
+import Loader from "./components/Loader/Loader";
+import { url } from "./constants/index";
 function App() {
+  const [userData, setUserData] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [userError, setUserError] = useState(undefined);
+
+  const getData = async (username) => {
+    try {
+      setIsLoading(true);
+      const userData = await axios.get(`${url}${username}`);
+      setUserData(userData.data);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 3000);
+      setUserError(undefined);
+    } catch (error) {
+      // handleError
+      setUserData({});
+      setUserError(error.message);
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={styles.App}>
+      <Header submit={getData} />
+      {isLoading ? (
+        <Loader className={styles.loader} />
+      ) : (
+        <Home userData={userData} userError={userError} />
+      )}
     </div>
   );
 }

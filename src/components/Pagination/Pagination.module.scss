@@ -1,0 +1,81 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  color: #808080;
+  margin-top: auto;
+  margin-left: auto;
+}
+.paginationButton {
+  padding: 2px 6px;
+  margin: 0 5px;
+  background-color: transparent;
+  border: none;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  color: #808080;
+  border-radius: 3px;
+  cursor: pointer;
+  &:hover {
+    background-color: #0064eb;
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+}
+.currentPage {
+  background: #0064eb;
+  color: #fff;
+}
+.paginationText {
+  margin-right: 24px;
+  font-size: 14px;
+  line-height: 21px;
+}
+.paginationDots {
+  padding: 0;
+  pointer-events: none;
+}
+.prevIcon {
+  margin-right: 14px;
+  &:hover {
+    fill: #0064eb;
+  }
+}
+.nextIcon {
+  margin-left: 14px;
+  &:hover {
+    color: #0064eb;
+  }
+}
+.paginationIcon {
+  cursor: pointer;
+}
+@media (max-width: 1024px) {
+  .repoContainer {
+    flex-direction: column;
+  }
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: none;
+    margin-bottom: 32px;
+  }
+  .userFollowing {
+    margin-left: 24px;
+  }
+  .pagination {
+    margin-top: 24px;
+  }
+}
+@media (max-width: 540px) {
+  .pagination {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .paginationText {
+    display: none;
+  }
+}

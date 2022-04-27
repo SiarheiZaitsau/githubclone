@@ -1,0 +1,56 @@
+.homeContainer {
+  padding: 28px 57px;
+  position: relative;
+  background: #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+  height: 100%;
+}
+.emptyContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.searchIcon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 48px;
+  fill: #808080;
+}
+.emptyText {
+  font-size: 22px;
+  text-align: center;
+  line-height: 30.8px;
+  font-weight: 400;
+  max-width: 220px;
+  font-weight: normal;
+  color: #808080;
+}
+.userIcon {
+  margin-bottom: 45px;
+}
+.notFoundText {
+  font-size: 22px;
+  text-align: center;
+  line-height: 28px;
+  color: #808080;
+}
+.widthContainer {
+  flex-direction: column;
+}
+@media (max-width: 768px) {
+  .homeContainer {
+    padding: 28px 40px;
+  }
+}
+@media (max-width: 540px) {
+  .homeContainer {
+    padding: 24px 12px;
+  }
+}
