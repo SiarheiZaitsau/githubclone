@@ -3,7 +3,6 @@ import SearchIcon from "../../images/search_large.svg";
 import userIcon from "../../images/buddy.svg";
 import Repo from "../Repo/Repo";
 import Container from "../Container/Container";
-import { useState } from "react";
 
 function Home(props) {
   const { repos, userData, userError, repoError } = props;

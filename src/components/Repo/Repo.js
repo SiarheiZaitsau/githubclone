@@ -55,7 +55,9 @@ function Repo(props) {
   const decreasePage = () => {
     setCurrentPage(currentPage - 1);
   };
-
+  if (repoError) {
+    return <div>{repoError}</div>;
+  }
   return (
     <div className={styles.repoContainer}>
       <UserInfo reduceToThousands={reduceToThousands} user={user} />
