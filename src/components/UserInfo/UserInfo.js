@@ -1,38 +1,37 @@
 import styles from "./UserInfo.module.scss";
 import { ReactComponent as FollowersIcon } from "../../images/buddies.svg";
 import { ReactComponent as FollowingIcon } from "../../images/person_24px.svg";
+import UserFollow from "../UserFollow/UserFollow";
 
 function UserInfo(props) {
-  const { user, reduceToThousands } = props;
+  const { user } = props;
   return (
-    <div className={styles.userInfo}>
-      <img
-        className={styles.userAvatar}
-        src={user.avatar_url}
-        alt="user_avatar"
-      />
-      <h3 className={styles.userName}>
+    <div className={styles.info}>
+      <img className={styles.avatar} src={user.avatar_url} alt="user_avatar" />
+      <h3 className={styles.name}>
         {user.name} {user.surname}
       </h3>
       <a
-        className={styles.userLink}
+        className={styles.link}
         target="_blank"
         href={user.html_url}
         rel="noreferrer"
       >
         {user.login}
       </a>
-      <div className={styles.userActivity}>
-        <div className={styles.userFollowers}>
-          <FollowersIcon className={styles.followersIcon} />
-          <p className={styles.followersText}>
-            {reduceToThousands(user.followers)} followers
-          </p>
-        </div>
-        <div className={styles.userFollowing}>
-          <FollowingIcon className={styles.followersIcon} />
-          <p className={styles.followersText}>{user.following} following</p>
-        </div>
+      <div className={styles.activity}>
+        <UserFollow
+          Icon={FollowersIcon}
+          text="followers"
+          number={user.followers}
+        />
+
+        <UserFollow
+          Icon={FollowingIcon}
+          text="following"
+          number={user.following}
+          className={styles.following}
+        />
       </div>
     </div>
   );

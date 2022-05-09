@@ -4,18 +4,7 @@ import cn from "classnames";
 function Loader(props) {
   const { className } = props;
   return (
-    <div className={cn(styles.lds_spinner, className)}>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div className={cn(styles.ldsHeart, className)}>
       <div></div>
     </div>
   );

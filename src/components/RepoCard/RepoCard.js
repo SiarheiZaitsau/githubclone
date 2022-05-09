@@ -7,12 +7,12 @@ function RepoCard(props) {
     <a
       href={repo.html_url}
       target="_blank"
-      className={styles.reposItem}
+      className={styles.item}
       rel="noreferrer"
     >
       <div>
-        <h4 className={styles.repoName}>{repo.name} </h4>
-        <p className={styles.repoDescription}>
+        <h4 className={styles.name}>{repo.name} </h4>
+        <p className={styles.description}>
           {repo.description || "User didn't add description"}
         </p>
       </div>

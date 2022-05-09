@@ -1,25 +1,24 @@
 import styles from "./Header.module.scss";
 import Logo from "../../images/logo.svg";
 import { ReactComponent as SearchIcon } from "../../images/search.svg";
-import Container from "../Container/Container";
+import cn from "classnames";
 
 function Header(props) {
-  const { submit } = props;
+  const { onSearchUser } = props;
+  const onSubmit = (e) => {
+    e.key === "Enter" && onSearchUser(e.target.value);
+  };
   return (
-    <div className={styles.headerContainer}>
-      <Container className={styles.widthContainer}>
+    <div className={styles.container}>
+      <div className={cn("container", styles.widthContainer)}>
         <img className={styles.logo} src={Logo} alt="React Logo" />
-        <div className={styles.headerInputContainer}>
-          <label className={styles.headerSearchLabel} htmlFor="search">
+        <div className={styles.inputContainer}>
+          <label className={styles.searchLabel} htmlFor="search">
             <SearchIcon />
           </label>
-          <input
-            onKeyPress={(e) => e.key === "Enter" && submit(e.target.value)}
-            id="search"
-            className={styles.headerSearch}
-          />
+          <input onKeyPress={onSubmit} id="search" className={styles.search} />
         </div>
-      </Container>
+      </div>
     </div>
   );
 }

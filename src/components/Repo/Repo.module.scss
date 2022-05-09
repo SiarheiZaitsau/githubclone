@@ -1,23 +1,13 @@
-.repoContainer {
+.repos {
   display: flex;
-  flex: 1 1;
-  height: 100%;
+  flex-direction: column;
+  flex: 1;
+  // height: 100%; ???????
   width: 100%;
   position: relative;
 }
 
-.repos {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-.repoTitle {
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 42px;
-  margin-bottom: 29px;
-}
-.reposTitle {
+.title {
   font-size: 32px;
   font-weight: 600;
   line-height: 41.6px;
@@ -27,7 +17,14 @@
   margin: 0 auto;
 }
 @media (max-width: 1024px) {
-  .repoContainer {
+  .container {
     flex-direction: column;
+  }
+}
+@media (max-width: 540px) {
+  .title {
+    font-size: 26px;
+    line-height: 33.8px;
+    align-self: center;
   }
 }

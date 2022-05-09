@@ -1,102 +1,75 @@
 import { ReactComponent as PrevIcon } from "../../images/prevIcon.svg";
-import { ReactComponent as NextIcon } from "../../images/nextIcon.svg";
 import styles from "./Pagination.module.scss";
 import cn from "classnames";
 function Pagination(props) {
-  const {
-    reposNumber,
-    currentPage,
-    reposPerPage,
-    numberOfPages,
-    changePage,
-    increasePage,
-    decreasePage,
-  } = props;
+  const { reposAmount, currentPage, reposPerPage, numberOfPages, changePage } =
+    props;
+  const nextPage = currentPage + 1;
+  const previousPage = currentPage - 1;
+  const ThisPageEnds = currentPage * reposPerPage;
+  const thisPageStart = ThisPageEnds - reposPerPage + 1;
 
   return (
     <>
       {numberOfPages > 1 && (
         <div className={styles.pagination}>
-          <p className={styles.paginationText}>
+          <p className={styles.text}>
             {currentPage !== numberOfPages
-              ? `${currentPage * reposPerPage - reposPerPage + 1}-${
-                  currentPage * reposPerPage
-                } of ${reposNumber} items`
-              : `${
-                  currentPage * reposPerPage - reposPerPage + 1
-                }-${reposNumber} of ${reposNumber} items`}
+              ? `${thisPageStart}-${ThisPageEnds} of ${reposAmount} items`
+              : `${thisPageStart}-${reposAmount} of ${reposAmount} items`}
           </p>
-          <PrevIcon
-            onClick={() => {
-              if (currentPage !== 1) {
-                decreasePage();
-              }
-            }}
-            className={cn(styles.paginationIcon, styles.prevIcon)}
-          />
-          {currentPage === 1 || (
-            <button
-              value={1}
-              className={styles.paginationButton}
-              onClick={(e) => {
-                changePage(e);
-              }}
-            >
+          <button
+            onClick={() => changePage(previousPage)}
+            disabled={currentPage === 1}
+            className={styles.changePageButton}
+          >
+            <PrevIcon className={cn(styles.icon, styles.prevIcon)} />
+          </button>
+          {currentPage !== 1 && (
+            <button className={styles.button} onClick={() => changePage(1)}>
               1
             </button>
           )}
           {currentPage > 3 && (
-            <button
-              className={cn(styles.paginationButton, styles.paginationDots)}
-            >
-              ...
-            </button>
+            <button className={cn(styles.button, styles.dots)}>...</button>
           )}
           {currentPage >= 3 && (
             <button
-              className={styles.paginationButton}
-              value={currentPage - 1}
-              onClick={(e) => changePage(e)}
+              className={styles.button}
+              onClick={() => changePage(previousPage)}
             >
-              {currentPage - 1}
+              {previousPage}
             </button>
           )}
-          <button className={cn(styles.paginationButton, styles.currentPage)}>
+          <button className={cn(styles.button, styles.currentPage)}>
             {currentPage}
           </button>
           {currentPage <= numberOfPages - 2 && (
             <button
-              className={styles.paginationButton}
-              value={currentPage + 1}
-              onClick={(e) => changePage(e)}
+              className={styles.button}
+              onClick={() => changePage(nextPage)}
             >
-              {currentPage + 1}
+              {nextPage}
             </button>
           )}
           {currentPage <= numberOfPages - 3 && (
-            <button
-              className={cn(styles.paginationButton, styles.paginationDots)}
-            >
-              ...
-            </button>
+            <button className={cn(styles.button, styles.dots)}>...</button>
           )}
-          {currentPage === numberOfPages || (
+          {!(currentPage === numberOfPages) && (
             <button
-              value={numberOfPages}
-              className={styles.paginationButton}
-              onClick={(e) => changePage(e)}
+              className={styles.button}
+              onClick={() => changePage(numberOfPages)}
             >
               {numberOfPages}
             </button>
           )}
-          <NextIcon
-            onClick={() => {
-              if (currentPage !== numberOfPages) {
-                increasePage(currentPage + 1);
-              }
-            }}
-            className={cn(styles.paginationIcon, styles.nextIcon)}
-          />
+          <button
+            onClick={() => changePage(nextPage)}
+            disabled={currentPage === numberOfPages}
+            className={styles.changePageButton}
+          >
+            <PrevIcon className={cn(styles.icon, styles.nextIcon)} />
+          </button>
         </div>
       )}
     </>

@@ -1,10 +1,9 @@
-.homeContainer {
+.container {
   padding: 28px 57px;
   position: relative;
-  background: #e5e5e5;
   display: flex;
   flex-direction: column;
-  flex: 1 1;
+  flex: 1;
   height: 100%;
 }
 .emptyContainer {
@@ -41,8 +40,11 @@
   line-height: 28px;
   color: #808080;
 }
-.widthContainer {
-  flex-direction: column;
+
+@media (max-width: 1024px) {
+  .widthContainer {
+    flex-direction: column;
+  }
 }
 @media (max-width: 768px) {
   .homeContainer {

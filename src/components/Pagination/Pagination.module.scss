@@ -5,7 +5,7 @@
   margin-top: auto;
   margin-left: auto;
 }
-.paginationButton {
+.button {
   padding: 2px 6px;
   margin: 0 5px;
   background-color: transparent;
@@ -17,39 +17,50 @@
   color: #808080;
   border-radius: 3px;
   cursor: pointer;
+  transition: all 0.3s ease;
   &:hover {
     background-color: #0064eb;
     color: #fff;
-    transition: all 0.3s ease;
   }
 }
 .currentPage {
   background: #0064eb;
   color: #fff;
 }
-.paginationText {
+.text {
   margin-right: 24px;
   font-size: 14px;
   line-height: 21px;
 }
-.paginationDots {
+.dots {
   padding: 0;
   pointer-events: none;
 }
-.prevIcon {
-  margin-right: 14px;
-  &:hover {
+
+.icon {
+  :last-child {
+  }
+}
+.changePageButton {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:first-of-type {
+    margin-right: 14px;
+  }
+  &:last-of-type {
+    margin-left: 14px;
+    transform: rotate(180deg);
+  }
+  &:hover .icon {
     fill: #0064eb;
   }
-}
-.nextIcon {
-  margin-left: 14px;
-  &:hover {
-    color: #0064eb;
+  &:disabled {
+    pointer-events: none;
   }
-}
-.paginationIcon {
-  cursor: pointer;
 }
 @media (max-width: 1024px) {
   .repoContainer {
@@ -75,7 +86,7 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .paginationText {
+  .text {
     display: none;
   }
 }
