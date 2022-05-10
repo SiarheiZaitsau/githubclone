@@ -1,6 +1,8 @@
 import styles from "./InfoMessage.module.scss";
 import cn from "classnames";
-const InfoMessage = ({ image, text, className }) => {
+
+const InfoMessage = (props) => {
+  const { image, text, className } = props;
   return (
     <div className={styles.emptyContainer}>
       <img src={image} alt="user" className={cn(styles.userIcon, className)} />

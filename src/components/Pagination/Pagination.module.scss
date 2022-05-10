@@ -10,7 +10,6 @@
   margin: 0 5px;
   background-color: transparent;
   border: none;
-  font-family: Inter;
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;
@@ -21,6 +20,10 @@
   &:hover {
     background-color: #0064eb;
     color: #fff;
+  }
+  &:focus {
+    background: transparent;
+    color: #808080;
   }
 }
 .currentPage {
@@ -37,10 +40,6 @@
   pointer-events: none;
 }
 
-.icon {
-  :last-child {
-  }
-}
 .changePageButton {
   display: flex;
   align-items: center;
